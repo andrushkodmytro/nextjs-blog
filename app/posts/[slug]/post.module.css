@@ -1,0 +1,29 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.imgContainer {
+  position: relative;
+  height: 462px;
+}
+
+.imgContainer img {
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.category {
+  align-self: flex-start;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #4b6bfb;
+  color: white;
+  font-size: 14px;
+}
+
+.postInfo{
+  display: inline-flex;
+  gap: 20px;
+}

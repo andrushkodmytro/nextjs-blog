@@ -1,0 +1,94 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.imgInput {
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  align-self: flex-start;
+  min-width: 400px;
+}
+
+.title input {
+  padding: 8px 20px;
+}
+
+.select {
+  padding: 10px 20px;
+  background-color: transparent;
+  align-self: flex-start;
+  min-width: 250px;
+  border-radius: 4px;
+}
+
+.editor {
+  display: flex;
+  gap: 20px;
+  height: 300px;
+  position: relative;
+}
+
+.button,
+.addButton {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid var(--textColor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.addButton {
+  border-color: #1a8917;
+}
+
+.add {
+  display: flex;
+  gap: 20px;
+  background-color: var(--bg);
+  position: absolute;
+  z-index: 999;
+  width: 100%;
+  left: 50px;
+}
+
+.input {
+  padding: 50px;
+  font-size: 64px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.input::placeholder {
+  color: #b3b3b1;
+}
+
+.textArea {
+  width: 100%;
+}
+
+.publish {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #1a8917;
+  color: white;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.publishBtn {
+  padding: 10px 40px;
+  align-self: flex-start;
+}

@@ -1,0 +1,9 @@
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 8px 20px;
+}

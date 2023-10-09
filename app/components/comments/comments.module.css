@@ -1,0 +1,61 @@
+.comments {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.commentsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.addComment {
+  display: flex;
+  gap: 12px;
+}
+
+.addComment input {
+  padding: 10px 12px;
+  flex-grow: 1;
+  max-width: 500px;
+}
+
+.addComment button {
+  padding: 6px 12px;
+}
+
+.comment {
+  /* outline: 1px solid red; */
+}
+
+.commentHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.commentHeader img {
+  border-radius: 50%;
+}
+
+.commentInfo {
+}
+
+.logInBtn {
+  align-self: flex-start;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 1px solid currentColor;
+}
+
+.btn {
+  all: unset;
+  background-color: gray;
+  border-radius: 6px;
+  cursor: pointer;
+}

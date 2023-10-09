@@ -1,0 +1,13 @@
+.userInfo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.name {
+  font-size: 12px;
+}
+
+.date {
+  font-size: 12px;
+}

@@ -1,0 +1,18 @@
+.topCart {
+  position: relative;
+  height: 500px;
+  display: flex;
+  align-items: end;
+}
+
+.topCart img {
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  padding: 40px;
+}
