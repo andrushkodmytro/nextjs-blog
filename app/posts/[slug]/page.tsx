@@ -3,6 +3,7 @@ import Comments from '@/app/components/comments/Comments';
 import { IPost } from '@/app/models/Post';
 import styles from './post.module.css';
 import UserInfo from '@/app/components/userInfo/UserInfo';
+import Link from 'next/link';
 
 const getData = async (slug: string): Promise<IPost> => {
   const res = await fetch(`${process.env.APP_URL}/api/posts/${slug}`, {
@@ -27,7 +28,13 @@ const Post = async ({ params }: PostProps) => {
 
   return (
     <div className={styles.post}>
-      <span className={styles.category}>{categoryId.title}</span>
+      <div className={styles.postTop}>
+        <span className={styles.category}>{categoryId.title}</span>
+
+        <Link href={`/edit/${slug}`} className={styles.editLink}>
+        Edit story
+        </Link>
+      </div>
       <h1>{title}</h1>
       <UserInfo
         fullName={`${author.firstName} ${author.lastName}`}
@@ -37,7 +44,7 @@ const Post = async ({ params }: PostProps) => {
       <div className={styles.imgContainer}>
         <Image src={img} fill alt={title} />
       </div>
-      <div dangerouslySetInnerHTML={{ __html: body }}></div>
+      <div className={styles.body} dangerouslySetInnerHTML={{ __html: body }}></div>
       <Comments postSlug={slug} />
     </div>
   );

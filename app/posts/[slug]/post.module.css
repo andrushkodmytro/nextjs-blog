@@ -1,7 +1,25 @@
 .post {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+.postTop {
+  display: flex;
+  justify-content: space-between;
+}
+
+.editLink {
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.editLink:hover {
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .imgContainer {
@@ -23,7 +41,22 @@
   font-size: 14px;
 }
 
-.postInfo{
+.postInfo {
   display: inline-flex;
   gap: 20px;
+}
+
+.body {
+  font-size: 20px;
+  line-height: 32px;
+}
+
+.body p,
+.body h1,
+.body h2,
+.body h3,
+.body h4,
+.body h5,
+.body h6 {
+  margin-top: 40px;
 }

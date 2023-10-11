@@ -85,19 +85,24 @@ const Comments = ({ postSlug }: CommentsType) => {
       <div className={styles.commentsList}>
         {isLoading && <p>Loading...</p>}
 
-        {comments.map(({ body, createdAt, author }, index: number) => {
-          return (
-            <div key={index} className={styles.comment}>
-              <div className={styles.commentHeader}>
-                <UserInfo
-                  fullName={`${author.firstName} ${author.lastName}`}
-                  createdAt={createdAt}
-                />
+        {!!comments.length ? (
+          comments.map(({ body, createdAt, author }, index: number) => {
+            return (
+              <div key={index} >
+                <div className={styles.commentHeader}>
+                  <UserInfo
+                    fullName={`${author.firstName} ${author.lastName}`}
+                    createdAt={createdAt}
+                  />
+                </div>
+                <p>{body}</p>
               </div>
-              <p>{body}</p>
-            </div>
-          );
-        })}
+            );
+          })
+        ) : (
+          <p className={styles.noCommentsText}>No comments for this story</p>
+        )}
+        {}
       </div>
     </div>
   );
