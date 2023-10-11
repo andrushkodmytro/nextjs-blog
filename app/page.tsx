@@ -1,13 +1,12 @@
 import { Metadata } from 'next';
 import TopCard from '@/app/components/topCard/TopCard';
-import CategoryList from '@/app/components/categoryList/CategoryList';
 import CardList from '@/app/components/cardList/CardList';
 import { IPost } from '@/app/models/Post';
 import { ICategory } from '@/app/models/Category';
 import styles from './page.module.css';
 import SidePanel from './components/sidePanel/SidePanel';
 
-const getData = async (
+const getPosts = async (
   page: number
 ): Promise<{ posts: IPost[]; total: number }> => {
   const res = await fetch(`${process.env.APP_URL}/api/posts?page=${page}`, {
@@ -44,7 +43,7 @@ export const metadata: Metadata = {
 
 export default async function Home({ searchParams }: HomeProps) {
   const page = parseInt(searchParams.page) || 1;
-  const { posts, total } = await getData(page);
+  const { posts, total } = await getPosts(page);
 
   const { categories } = await getCategories();
 
@@ -56,7 +55,6 @@ export default async function Home({ searchParams }: HomeProps) {
   return (
     <div className={styles.main}>
       <TopCard />
-      <CategoryList categories={categories} />
       <div className={styles.postContainer}>
         <CardList
           posts={posts}
@@ -64,7 +62,7 @@ export default async function Home({ searchParams }: HomeProps) {
           hasPrev={hasPrev}
           hasNext={hasNext}
         />
-        <SidePanel />
+        <SidePanel posts={posts} categories={categories} />
       </div>
     </div>
   );

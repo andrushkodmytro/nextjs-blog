@@ -9,32 +9,53 @@ import { ICategory } from '@/app/models/Category';
 import Image from 'next/image';
 
 type EditorProps = {
+  slug?: string;
   categories: ICategory[];
+  title?: string;
+  body?: string;
+  categoryId?: string;
+  img?: string;
 };
 
-const Editor = ({ categories }: EditorProps) => {
-  const [title, setTitle] = useState('');
-  const [img, setImg] = useState('');
-  const [body, setBody] = useState('');
+const slugify = (str:string) =>
+str
+  .toLowerCase()
+  .trim()
+  .replace(/[^\w\s-]/g, "")
+  .replace(/[\s_-]+/g, "-")
+  .replace(/^-+|-+$/g, "");
 
-  const [open, setOpen] = useState(false);
+const Editor = ({
+  slug = '',
+  categories,
+  title: initTitle = '',
+  body: initBody = '',
+  categoryId: initCategory = '',
+  img: initImg = '',
+}: EditorProps) => {
+  const [title, setTitle] = useState(initTitle);
+  const [category, setCategory] = useState(initCategory);
+  const [img, setImg] = useState(initImg);
+  const [body, setBody] = useState(initBody);
 
   const router = useRouter();
 
   const onPublish = async () => {
     try {
-      const res = await fetch(`api/add-post`, {
-        method: 'POST',
+      const url = slug ? `/api/posts/${slug}` : `/api/add-post`;
+      const res = await fetch(url, {
+        method: slug ? 'PUT' : 'POST',
         body: JSON.stringify({
           title,
+          slug:slugify(title),
           img,
           author: '65086447f52a24339dd2c5c0',
-          categoryId: '651ff24304560ccb77693916',
+          categoryId: category,
           body,
         }),
       });
 
-      if (res.status === 201) {
+      if (res.status === 200 || res.status === 201 ) {
         const data = await res.json();
 
         router.push(`/posts/${data.slug}`);
@@ -45,7 +66,11 @@ const Editor = ({ categories }: EditorProps) => {
   };
   return (
     <div className={styles.container}>
-      <select className={styles.select}>
+      <select
+        className={styles.select}
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
+      >
         {categories.map(({ _id, title }) => {
           return (
             <option key={_id.toString()} value={_id.toString()}>

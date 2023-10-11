@@ -9,23 +9,20 @@ type CategoryListProps = {
 
 const CategoryList = ({ categories }: CategoryListProps) => {
   return (
-    <div className={styles.categories}>
-      <h2>Popular Categories</h2>
-      <div className={styles.categoryList}>
-        {categories.map(({ title, img, bgColor, categorySlug }, index) => {
-          return (
-            <Link
-              href={`category/${categorySlug}`}
-              key={index}
-              className={styles.categoryItem}
-              style={{ backgroundColor: bgColor || '#ccc' }}
-            >
-              <Image src={img} height={30} width={30} alt={title} />
-              {title}
-            </Link>
-          );
-        })}
-      </div>
+    <div className={styles.categoryList}>
+      {categories.map(({ title, img, bgColor, categorySlug }, index) => {
+        return (
+          <Link
+            href={`category/${categorySlug}`}
+            key={index}
+            className={styles.categoryItem}
+            style={{ backgroundColor: bgColor || '#ccc' }}
+          >
+            {/* <Image src={img} height={30} width={30} alt={title} /> */}
+            {title}
+          </Link>
+        );
+      })}
     </div>
   );
 };

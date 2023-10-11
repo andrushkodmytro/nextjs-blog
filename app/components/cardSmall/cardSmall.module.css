@@ -1,0 +1,12 @@
+.cardSmall {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tag {
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  align-self: flex-start;
+}

@@ -1,0 +1,15 @@
+.sidePanel {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.sidePanel h2 {
+  margin-bottom: 20px;
+}
+
+.sidePanel ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
