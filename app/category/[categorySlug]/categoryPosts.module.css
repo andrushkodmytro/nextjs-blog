@@ -5,3 +5,9 @@
   border-radius: 6px;
   padding: 8px 20px;
 }
+
+.postContainer {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 40px;
+}

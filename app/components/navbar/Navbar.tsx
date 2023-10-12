@@ -2,8 +2,9 @@ import Image from 'next/image';
 import { getServerSession } from 'next-auth/next';
 import Link from 'next/link';
 import { authConfig } from '@/configs/auth';
-import LogIn from '../logIn/LogIn';
+import AuthLinks from '../AuthLinks/AuthLinks';
 import styles from './navbar.module.css';
+import ThemeToggle from '../themeToggle/ThemeToggle';
 
 const menuItems = [{ label: 'Home', href: '/' }];
 
@@ -16,6 +17,7 @@ const Navbar = async () => {
         <div className={styles.container}>
           <Image src='/logo.svg' width={158} height={40} alt='Logo' />
           <nav className={styles.nav}>
+            <ThemeToggle/>
             {menuItems.map(({ label, href }, index) => {
               return (
                 <Link key={index} href={href}>
@@ -25,7 +27,7 @@ const Navbar = async () => {
             })}
 
             {session && <Link href='/add-post'>Write</Link>}
-            <LogIn />
+            <AuthLinks />
           </nav>
         </div>
       </div>

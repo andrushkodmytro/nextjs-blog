@@ -88,15 +88,15 @@ const Editor = ({
         onChange={(e) => setImg(e.target.value)}
       />
 
-      <div className={styles.title}>
+      {/* <div className={styles.title}> */}
         <input
-          type='text'
+          type='textarea'
           placeholder='Title'
           className={styles.input}
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-      </div>
+      {/* </div> */}
 
       <div className={styles.editor}>
         <ReactQuill

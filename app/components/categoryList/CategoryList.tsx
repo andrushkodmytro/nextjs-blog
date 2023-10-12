@@ -13,7 +13,7 @@ const CategoryList = ({ categories }: CategoryListProps) => {
       {categories.map(({ title, img, bgColor, categorySlug }, index) => {
         return (
           <Link
-            href={`category/${categorySlug}`}
+            href={`/category/${categorySlug}`}
             key={index}
             className={styles.categoryItem}
             style={{ backgroundColor: bgColor || '#ccc' }}
