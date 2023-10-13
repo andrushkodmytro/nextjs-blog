@@ -28,6 +28,7 @@ const Card = ({
         <UserInfo
           fullName={`${author.firstName} ${author.lastName}`}
           createdAt={createdAt}
+          avatarUrl={author.img}
         />
       </div>
     </Link>

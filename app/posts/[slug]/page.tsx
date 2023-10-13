@@ -32,19 +32,23 @@ const Post = async ({ params }: PostProps) => {
         <span className={styles.category}>{categoryId.title}</span>
 
         <Link href={`/edit/${slug}`} className={styles.editLink}>
-        Edit story
+          Edit story
         </Link>
       </div>
       <h1>{title}</h1>
       <UserInfo
         fullName={`${author.firstName} ${author.lastName}`}
         createdAt={createdAt}
+        avatarUrl={author.img}
       />
 
       <div className={styles.imgContainer}>
         <Image src={img} fill alt={title} />
       </div>
-      <div className={styles.body} dangerouslySetInnerHTML={{ __html: body }}></div>
+      <div
+        className={styles.body}
+        dangerouslySetInnerHTML={{ __html: body }}
+      ></div>
       <Comments postSlug={slug} />
     </div>
   );

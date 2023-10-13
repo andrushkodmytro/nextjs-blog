@@ -26,7 +26,7 @@ const Navbar = async () => {
               );
             })}
 
-            {session && <Link href='/add-post'>Write</Link>}
+            
             <AuthLinks />
           </nav>
         </div>

@@ -5,10 +5,16 @@ import Image from 'next/image';
 type UserInfoProps = {
   fullName: string;
   createdAt: string;
+  avatarUrl?: string;
   hideAvatar?: boolean;
 };
 
-const UserInfo = ({ fullName, createdAt, hideAvatar }: UserInfoProps) => {
+const UserInfo = ({
+  fullName,
+  createdAt,
+  avatarUrl,
+  hideAvatar,
+}: UserInfoProps) => {
   const date = new Date(createdAt);
 
   const dateFormatted = new Intl.DateTimeFormat('en-US', {
@@ -28,7 +34,12 @@ const UserInfo = ({ fullName, createdAt, hideAvatar }: UserInfoProps) => {
 
   return (
     <div className={styles.userInfoWithAvatar}>
-      <Image src={'/avatar.png'} height={24} width={24} alt={fullName} />
+      <Image
+        src={avatarUrl ? avatarUrl : '/avatar.png'}
+        height={30}
+        width={30}
+        alt={fullName}
+      />
 
       <div>
         <div className={styles.name}>{fullName}</div>

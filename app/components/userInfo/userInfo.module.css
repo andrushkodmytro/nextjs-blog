@@ -4,6 +4,11 @@
   align-items: center;
 }
 
+.userInfoWithAvatar img {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 .userInfo {
   display: flex;
   gap: 20px;

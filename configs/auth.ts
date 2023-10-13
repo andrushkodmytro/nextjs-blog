@@ -22,12 +22,7 @@ export const authConfig = {
             if (user && user.password === credentials.password) {
               const newUser = { id: 'hello', ...user };
 
-              const user1 = {
-                id: '1',
-                name: 'J Smith',
-                email: 'jsmith@example.com',
-              };
-              return user1;
+              return newUser;
             }
           }
 
@@ -38,4 +33,31 @@ export const authConfig = {
       },
     }),
   ],
+  callbacks: {
+    async jwt({ token, user, session }) {
+      if (user) {
+        return {
+          ...token,
+          _id: user._id.toString(),
+          firstName: user.firstName,
+          lastName: user.lastName,
+          img: user.img,
+        };
+      }
+
+      return token;
+    },
+    async session({ session, token, user }) {
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          _id: token._id,
+          firstName: token.firstName,
+          lastName: token.lastName,
+          img: token.img,
+        },
+      };
+    },
+  },
 };

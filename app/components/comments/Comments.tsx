@@ -88,11 +88,12 @@ const Comments = ({ postSlug }: CommentsType) => {
         {!!comments.length ? (
           comments.map(({ body, createdAt, author }, index: number) => {
             return (
-              <div key={index} >
+              <div key={index}>
                 <div className={styles.commentHeader}>
                   <UserInfo
                     fullName={`${author.firstName} ${author.lastName}`}
                     createdAt={createdAt}
+                    avatarUrl={author.img}
                   />
                 </div>
                 <p>{body}</p>

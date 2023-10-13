@@ -7,6 +7,7 @@ import 'react-quill/dist/quill.bubble.css';
 import styles from './editor.module.css';
 import { ICategory } from '@/app/models/Category';
 import Image from 'next/image';
+import { useSession } from 'next-auth/react';
 
 type EditorProps = {
   slug?: string;
@@ -17,13 +18,13 @@ type EditorProps = {
   img?: string;
 };
 
-const slugify = (str:string) =>
-str
-  .toLowerCase()
-  .trim()
-  .replace(/[^\w\s-]/g, "")
-  .replace(/[\s_-]+/g, "-")
-  .replace(/^-+|-+$/g, "");
+const slugify = (str: string) =>
+  str
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 
 const Editor = ({
   slug = '',
@@ -38,24 +39,30 @@ const Editor = ({
   const [img, setImg] = useState(initImg);
   const [body, setBody] = useState(initBody);
 
+  const { data: session, status } = useSession();
+
   const router = useRouter();
 
   const onPublish = async () => {
+    if (!session || !session?.user) {
+      return null;
+    }
+
     try {
       const url = slug ? `/api/posts/${slug}` : `/api/add-post`;
       const res = await fetch(url, {
         method: slug ? 'PUT' : 'POST',
         body: JSON.stringify({
           title,
-          slug:slugify(title),
+          slug: slugify(title),
           img,
-          author: '65086447f52a24339dd2c5c0',
+          author: session.user._id,
           categoryId: category,
           body,
         }),
       });
 
-      if (res.status === 200 || res.status === 201 ) {
+      if (res.status === 200 || res.status === 201) {
         const data = await res.json();
 
         router.push(`/posts/${data.slug}`);
@@ -64,6 +71,7 @@ const Editor = ({
       console.error(error);
     }
   };
+
   return (
     <div className={styles.container}>
       <select
@@ -89,13 +97,13 @@ const Editor = ({
       />
 
       {/* <div className={styles.title}> */}
-        <input
-          type='textarea'
-          placeholder='Title'
-          className={styles.input}
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
+      <input
+        type='textarea'
+        placeholder='Title'
+        className={styles.input}
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
       {/* </div> */}
 
       <div className={styles.editor}>

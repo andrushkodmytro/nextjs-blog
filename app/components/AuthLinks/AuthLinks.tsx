@@ -1,6 +1,7 @@
 'use client';
 import { useSession, signIn, signOut } from 'next-auth/react';
-import styles from './authLinks.module.css'
+import styles from './authLinks.module.css';
+import Link from 'next/link';
 
 const AuthLinks = () => {
   const { data: session, status } = useSession();
@@ -11,13 +12,23 @@ const AuthLinks = () => {
 
   if (session) {
     return (
-      <button className={styles.link} onClick={() => signOut({ redirect: false, callbackUrl: '/' })}>
-        Logout
-      </button>
+      <>
+        <Link href='/add-post'>Write</Link>
+        <button
+          className={styles.link}
+          onClick={() => signOut({ redirect: false, callbackUrl: '/' })}
+        >
+          Logout
+        </button>
+      </>
     );
   }
 
-  return <button className={styles.link} onClick={() => signIn()}>Login</button>;
+  return (
+    <button className={styles.link} onClick={() => signIn()}>
+      Login
+    </button>
+  );
 };
 
 export default AuthLinks;
