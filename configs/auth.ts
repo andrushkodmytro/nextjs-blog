@@ -1,8 +1,9 @@
 import CredentialsProvider from 'next-auth/providers/credentials';
 import dbConnect from '@/configs/dbConnect';
-import User, { IUser } from '@/app/models/User';
+import UserModel, { IUser } from '@/app/models/User';
+import { NextAuthOptions } from 'next-auth';
 
-export const authConfig = {
+export const authConfig: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: 'Credentials',
@@ -10,17 +11,24 @@ export const authConfig = {
         username: { label: 'Username', type: 'text', placeholder: 'jsmith' },
         password: { label: 'Password', type: 'password' },
       },
-      async authorize(credentials, req) {
+      async authorize(credentials) {
         try {
           await dbConnect();
 
           if (credentials?.username) {
-            const user = (await User.findOne({
+            const user = (await UserModel.findOne({
               email: credentials.username,
             }).lean()) as IUser;
 
             if (user && user.password === credentials.password) {
-              const newUser = { id: 'hello', ...user };
+              const newUser = {
+                id: user._id.toString(),
+                firstName: user.firstName,
+                lastName: user.lastName,
+                email: user.email,
+                name: 'ede',
+                img: user.img,
+              };
 
               return newUser;
             }
@@ -34,11 +42,11 @@ export const authConfig = {
     }),
   ],
   callbacks: {
-    async jwt({ token, user, session }) {
+    async jwt({ token, user }) {
       if (user) {
         return {
           ...token,
-          _id: user._id.toString(),
+          _id: user.id,
           firstName: user.firstName,
           lastName: user.lastName,
           img: user.img,

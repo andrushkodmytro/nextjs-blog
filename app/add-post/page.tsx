@@ -25,8 +25,7 @@ const AddPost = async () => {
 
   return (
     <div className={styles.addPost}>
-      <h1>Add new post</h1>
-      <Editor categories={categories} />
+      <Editor  categories={categories} />
     </div>
   );
 };

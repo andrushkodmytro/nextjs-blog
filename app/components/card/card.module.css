@@ -48,3 +48,10 @@
   font-size: 16px;
   font-weight: 400;
 }
+
+
+@media screen and (max-width: 600px){
+  .card{
+    grid-template-columns:  minmax(0, 1fr)
+  }
+}

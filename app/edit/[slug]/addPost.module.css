@@ -1,8 +1,7 @@
 .addPost {
   max-width: 840px;
   margin: 0 auto;
-}
-
-.addPost h1 {
-  margin-bottom: 20px;
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px solid #e8e8ea;
 }

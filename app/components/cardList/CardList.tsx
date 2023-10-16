@@ -12,8 +12,8 @@ type CardListProps = {
 
 const CardList = ({ posts, page, hasPrev, hasNext }: CardListProps) => {
   return (
-    <div >
-      <h2>Recent posts</h2>
+    <div className={styles.cardList}>
+      <h2 >Recent posts</h2>
       <div className={styles.list}>
         {posts.map((post, index) => {
           return <Card key={index} post={post} />;

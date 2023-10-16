@@ -1,6 +1,7 @@
-import NextAuth from "next-auth";
+import NextAuth from 'next-auth';
+import { IUser } from '@/app/models/User';
 
-declare module "next-auth" {
+declare module 'next-auth' {
   interface Session {
     user: {
       _id: string;
@@ -9,5 +10,10 @@ declare module "next-auth" {
       email: string;
       // [key: string]: string;
     };
+  }
+  interface User {
+    firstName: string;
+    lastName: string;
+    img?: string;
   }
 }

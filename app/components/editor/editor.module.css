@@ -5,17 +5,26 @@
   gap: 20px;
 }
 
-.imgInput {
-  padding: 10px 15px;
+.top h1 {
+  margin: 0;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.storyImgUrl {
+  padding: 10px 0;
   border: none;
   outline: none;
   background-color: transparent;
   min-width: 400px;
+  font-size: 18px;
 }
 
 .title input {
   padding: 8px 20px;
-  
 }
 
 .select {
@@ -29,8 +38,8 @@
 .editor {
   display: flex;
   gap: 20px;
-  height: 500px;
   position: relative;
+  min-height: 300px;
 }
 
 .editor p {
@@ -75,15 +84,16 @@
   left: 50px;
 }
 
-.input {
-  padding: 15px;
-  font-size: 40px;
+.storyTitle {
+  padding: 15px 0;
+  font-size: 36px;
+  font-weight: 500;
   border: none;
   outline: none;
   background-color: transparent;
 }
 
-.input::placeholder {
+.storyTitle::placeholder {
   color: #b3b3b1;
 }
 

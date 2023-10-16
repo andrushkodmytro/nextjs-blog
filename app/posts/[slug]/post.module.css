@@ -2,24 +2,21 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  max-width: 840px;
+  padding: 60px;
+  max-width: 960px;
   margin: 0 auto;
+  border-radius: 12px;
+  border: 1px solid #e8e8ea;
 }
 
 .postTop {
   display: flex;
-  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
 }
 
 .editLink {
-  font-weight: bold;
-  padding: 4px 8px;
-  border-radius: 4px;
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.editLink:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+  margin-left: auto;
 }
 
 .imgContainer {
@@ -33,7 +30,6 @@
 }
 
 .category {
-  align-self: flex-start;
   padding: 6px 12px;
   border-radius: 6px;
   background: #4b6bfb;

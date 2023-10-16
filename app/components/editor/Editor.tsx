@@ -74,6 +74,15 @@ const Editor = ({
 
   return (
     <div className={styles.container}>
+      <div className={styles.top}>
+        <h1>{slug? 'Edit a story': 'Add a new story'}</h1>
+        <button
+          className={`btn-primary ${styles.publishBtn}`}
+          onClick={onPublish}
+        >
+          Publish
+        </button>
+      </div>
       <select
         className={styles.select}
         value={category}
@@ -89,22 +98,20 @@ const Editor = ({
       </select>
 
       <input
-        className={styles.imgInput}
+        className={styles.storyImgUrl}
         type='text'
         placeholder='Title image url (www.site/img.jpg)'
         value={img}
         onChange={(e) => setImg(e.target.value)}
       />
 
-      {/* <div className={styles.title}> */}
       <input
         type='textarea'
         placeholder='Title'
-        className={styles.input}
+        className={styles.storyTitle}
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      {/* </div> */}
 
       <div className={styles.editor}>
         <ReactQuill
@@ -115,9 +122,6 @@ const Editor = ({
           placeholder='Tell your story...'
         />
       </div>
-      <button className={styles.publishBtn} onClick={onPublish}>
-        Publish
-      </button>
     </div>
   );
 };

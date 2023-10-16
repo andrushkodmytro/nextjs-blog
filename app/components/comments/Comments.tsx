@@ -72,7 +72,7 @@ const Comments = ({ postSlug }: CommentsType) => {
             value={body}
             onChange={(e) => setBody(e.target.value)}
           />
-          <button className={styles.btn} onClick={onSubmit}>
+          <button className={`btn-secondary ${styles.btn}`} onClick={onSubmit}>
             Send
           </button>
         </div>

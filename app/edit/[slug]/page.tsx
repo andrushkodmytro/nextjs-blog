@@ -44,9 +44,8 @@ const EditPost = async ({ params }: EditPostProps) => {
 
   return (
     <div className={styles.addPost}>
-      <h1>Edit post</h1>
       <Editor
-      slug={slug}
+        slug={slug}
         categories={categories}
         title={title}
         body={body}

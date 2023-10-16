@@ -28,19 +28,22 @@ const Post = async ({ params }: PostProps) => {
 
   return (
     <div className={styles.post}>
+      <h1>{title}</h1>
       <div className={styles.postTop}>
+        <UserInfo
+          fullName={`${author.firstName} ${author.lastName}`}
+          createdAt={createdAt}
+          avatarUrl={author.img}
+        />
         <span className={styles.category}>{categoryId.title}</span>
 
-        <Link href={`/edit/${slug}`} className={styles.editLink}>
+        <Link
+          href={`/edit/${slug}`}
+          className={`btn-secondary ${styles.editLink}`}
+        >
           Edit story
         </Link>
       </div>
-      <h1>{title}</h1>
-      <UserInfo
-        fullName={`${author.firstName} ${author.lastName}`}
-        createdAt={createdAt}
-        avatarUrl={author.img}
-      />
 
       <div className={styles.imgContainer}>
         <Image src={img} fill alt={title} />

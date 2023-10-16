@@ -1,5 +1,7 @@
-.cardList h2 {
-  margin-bottom: 20px;
+.cardList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .list {
