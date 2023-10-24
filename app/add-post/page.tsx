@@ -8,24 +8,25 @@ export const metadata: Metadata = {
   description: 'Meta blog | Add new post',
 };
 
-const getCategories = async (): Promise<{ categories: ICategory[] }> => {
-  const res = await fetch(`${process.env.APP_URL}/api/categories`, {
-    cache: 'no-store',
-  });
+// const getCategories = async (): Promise<{ categories: ICategory[] }> => {
+//   const res = await fetch(`${process.env.APP_URL}/api/categories`, {
+//     cache: 'no-store',
+//   });
 
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
+//   if (!res.ok) {
+//     throw new Error('Failed to fetch data');
+//   }
 
-  return res.json();
+//   return res.json();
 };
 
 const AddPost = async () => {
-  const { categories } = await getCategories();
+  // const { categories } = await getCategories();
 
   return (
     <div className={styles.addPost}>
-      <Editor  categories={categories} />
+      {/* <Editor  categories={categories} /> */}
+      <Editor  categories={[]} />
     </div>
   );
 };

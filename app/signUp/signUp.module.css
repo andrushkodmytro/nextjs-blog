@@ -1,0 +1,26 @@
+.signInPage {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0 auto;
+  border: 1px solid var(--borderColor);
+  max-width: 400px;
+  width: 100%;
+  padding: 30px;
+  border-radius: var(--borderRadiusMd);
+}
+
+.error {
+  background-color: red;
+  padding: 20px 10px;
+  border-radius: var(--borderRadiusLg);
+  color: white;
+  font-weight: 500;
+}
