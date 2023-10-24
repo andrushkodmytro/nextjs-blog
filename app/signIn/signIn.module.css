@@ -24,3 +24,9 @@
   color: white;
   font-weight: 500;
 }
+
+.btnsContainer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}

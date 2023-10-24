@@ -1,6 +1,8 @@
 'use client';
 import { signIn } from 'next-auth/react';
 import React, { useState, useRef } from 'react';
+import Button from '@/app/components/ui/button/Button';
+import TextField from '@/app/components/ui/textField/TextField';
 import styles from './signIn.module.css';
 
 const SignIn = () => {
@@ -30,9 +32,16 @@ const SignIn = () => {
       <form className={styles.form} onSubmit={onSubmit}>
         <h1>Sign In</h1>
         {error && <p className={styles.error}>{error}</p>}
-        <input placeholder='email' ref={userName} />
-        <input placeholder='password' ref={password} />
-        <button type='submit'>Login</button>
+        <TextField label='Email' />
+        <TextField label='Password' />
+        <div className={styles.btnsContainer}>
+          <Button type='button' color='secondary' variant='outlined'>
+            Back
+          </Button>
+          <Button type='submit' color='primary' variant='contained'>
+            Login
+          </Button>
+        </div>
       </form>
     </div>
   );

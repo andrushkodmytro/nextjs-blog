@@ -1,0 +1,35 @@
+import React from 'react';
+import styles from './button.module.css';
+
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  color?: 'primary' | 'secondary';
+  variant?: 'text' | 'contained' | 'outlined';
+};
+
+const colors = {
+  primary: 'Primary',
+  secondary: 'Secondary',
+};
+
+const variants = {
+  text: 'btnText',
+  contained: 'btnContained',
+  outlined: 'btnOutlined',
+};
+
+const Button = ({
+  variant = 'contained',
+  color = 'primary',
+  ...rest
+}: ButtonProps) => {
+  return (
+    <button
+      className={`${styles.btn} ${styles[variants[variant] + colors[color]]}`}
+      {...rest}
+    >
+      {rest.children}
+    </button>
+  );
+};
+
+export default Button;

@@ -2,6 +2,8 @@
 import React, { useState, useRef } from 'react';
 import { signIn } from 'next-auth/react';
 import styles from './signUp.module.css';
+import TextField from '@/app/components/ui/textField/TextField';
+import Button from '@/app/components/ui/button/Button';
 
 const SignUp = () => {
   const [error, setError] = useState('');
@@ -31,13 +33,16 @@ const SignUp = () => {
       <form className={styles.form} onSubmit={onSubmit}>
         <h1>Sign Up</h1>
         {error && <p className={styles.error}>{error}</p>}
-        <input placeholder='First name' ref={userName} />
-        <input placeholder='Last name' ref={userName} />
-        <input placeholder='email' ref={userName} />
-        <input placeholder='User image' ref={userName} />
-        <input placeholder='password' ref={password} />
-        <input placeholder='password confirmation' ref={passwordComfirmation} />
-        <button type='submit'>Register</button>
+        <TextField placeholder='First name' />
+        <TextField placeholder='Last name' />
+        <TextField placeholder='email' />
+        <TextField placeholder='User image url' />
+        <TextField placeholder='password' />
+        <TextField placeholder='password confirmation' />
+        <div className={styles.btnsContainer}>
+          <Button type='button' color='secondary' variant='outlined'>Back</Button>
+          <Button type='submit'>Register</Button>
+        </div>
       </form>
     </div>
   );
