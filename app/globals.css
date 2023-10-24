@@ -7,6 +7,7 @@
   --borderRadiusSm: 4px;
   --borderRadiusMd: 6px;
   --borderRadiusLg: 10px;
+  --borderColor: #626262;
 }
 
 *,
@@ -52,11 +53,13 @@ ul {
   flex-grow: 1;
   padding-top: 80px;
   padding-bottom: 80px;
+  height: 1px;
 }
 
 .wrapper {
   max-width: 1400px;
   width: 100%;
+  height: 100%;
   margin-left: auto;
   margin-right: auto;
   padding-left: 80px;
