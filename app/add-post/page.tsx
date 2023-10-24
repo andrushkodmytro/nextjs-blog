@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 //   }
 
 //   return res.json();
-};
+// };
 
 const AddPost = async () => {
   // const { categories } = await getCategories();
