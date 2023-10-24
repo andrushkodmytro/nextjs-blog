@@ -4,6 +4,18 @@
   --softBg: #f0f0f0;
   --softTextColor: #626262;
 
+  --errorColor: rgb(211,47,47);
+
+  --primaryLightColor: rgb(25, 118, 210);
+  --primaryMainColor: rgb(25, 118, 210);
+  --primaryDarkColor: #1565c0;
+
+  --secondaryLightColor:  #ba68c8;
+  --secondaryMainColor: #9c27b0;
+  --secondaryDarkColor: #7b1fa2;
+
+  --borderColor: #e8e8ea;
+
   --borderRadiusSm: 4px;
   --borderRadiusMd: 6px;
   --borderRadiusLg: 10px;
@@ -52,6 +64,7 @@ ul {
   flex-grow: 1;
   padding-top: 80px;
   padding-bottom: 80px;
+  display:flex;
 }
 
 .wrapper {

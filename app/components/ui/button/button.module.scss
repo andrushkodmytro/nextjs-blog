@@ -1,0 +1,88 @@
+.btn {
+  border-radius: var(--borderRadiusMd);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: inherit;
+}
+
+.btnContainedPrimary {
+  background-color: var(--primaryMainColor);
+  border: 1px solid var(--primaryMainColor);
+  padding: 8px 20px;
+  color: white;
+
+  &:not(:disabled):hover {
+    background-color: var(--primaryDarkColor);
+  }
+
+  &:disabled {
+    background-color: rgba(0, 0, 0, 0.26);
+    border-color: rgba(0, 0, 0, 0.26);
+  }
+}
+
+.btnContainedSecondary {
+  background-color: var(--secondaryMainColor);
+  border: 1px solid var(--secondaryMainColor);
+  padding: 8px 20px;
+  color: white;
+
+  &:not(:disabled):hover {
+    background-color: var(--secondaryDarkColor);
+  }
+}
+
+.btnOutlinedPrimary {
+  background-color: transparent;
+  border: 1px solid var(--primaryMainColor);
+  padding: 8px 20px;
+  color: var(--primaryMainColor);
+
+  &:not(:disabled):hover {
+    border: 1px solid var(--primaryMainColor);
+    background-color: rgba(25, 118, 210, 0.04);
+  }
+
+  &:disabled {
+    color: rgba(0, 0, 0, 0.26);
+    border-color: rgba(0, 0, 0, 0.12);
+    cursor: not-allowed;
+  }
+}
+
+.btnOutlinedSecondary {
+  background-color: transparent;
+  border: 1px solid var(--secondaryMainColor);
+  padding: 8px 20px;
+  color: var(--secondaryMainColor);
+
+  &:hover {
+    border: 1px solid var(--secondaryMainColor);
+    background-color: rgba(156, 39, 176, 0.04);
+  }
+}
+
+.btnTextPrimary {
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 8px 20px;
+  color: var(--primaryMainColor);
+
+  &:hover {
+    border: 1px solid rgba(25, 118, 210, 0.04);
+    background-color: rgba(25, 118, 210, 0.04);
+  }
+}
+
+.btnTextSecondary {
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 8px 20px;
+  color: var(--secondaryMainColor);
+
+  &:hover {
+    border: 1px solid rgba(156, 39, 176, 0.04);
+    background-color: rgba(156, 39, 176, 0.04);
+  }
+}

@@ -1,4 +1,9 @@
 import mongoose from 'mongoose';
+import '@/app/models/Category'
+import '@/app/models/Comment'
+import '@/app/models/Post'
+import '@/app/models/User'
+
 declare global {
   var mongoose: any; // This must be a `var` and not a `let / const`
 }

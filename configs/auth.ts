@@ -15,23 +15,22 @@ export const authConfig: NextAuthOptions = {
         try {
           await dbConnect();
 
-          if (credentials?.username) {
-            const user = (await UserModel.findOne({
-              email: credentials.username,
-            }).lean()) as IUser;
+          if (credentials?.username && credentials?.password) {
+            const user: IUser = await UserModel.findByCredentials(
+              credentials.username,
+              credentials.password
+            );
 
-            if (user && user.password === credentials.password) {
-              const newUser = {
-                id: user._id.toString(),
-                firstName: user.firstName,
-                lastName: user.lastName,
-                email: user.email,
-                name: 'ede',
-                img: user.img,
-              };
+            const newUser = {
+              id: user._id.toString(),
+              firstName: user.firstName,
+              lastName: user.lastName,
+              email: user.email,
+              name: 'ede',
+              img: user.img,
+            };
 
-              return newUser;
-            }
+            return newUser;
           }
 
           return null;
@@ -41,6 +40,9 @@ export const authConfig: NextAuthOptions = {
       },
     }),
   ],
+  pages: {
+    signIn: '/signIn',
+  },
   callbacks: {
     async jwt({ token, user }) {
       if (user) {

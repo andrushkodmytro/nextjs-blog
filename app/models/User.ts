@@ -1,4 +1,5 @@
-import { Schema, Document, model, models, Types } from 'mongoose';
+import bcrypt from 'bcrypt';
+import { Schema, Document, model, models, Types, Model, } from 'mongoose';
 
 export interface IUserInit {
   firstName: string;
@@ -15,6 +16,10 @@ export interface IUserDocument extends IUserInit, Document {
 }
 
 export interface IUser extends IUserDocument {}
+
+interface IUserModel extends Model<IUserDocument> {
+  findByCredentials(email: string, password: string): any;
+}
 
 const UserSchema = new Schema<IUserDocument>(
   {
@@ -33,6 +38,7 @@ const UserSchema = new Schema<IUserDocument>(
     },
     email: {
       type: String,
+      unique: true,
       required: [true, 'email is required'],
       maxlength: [40, 'email cannot be more than 40 characters'],
     },
@@ -45,4 +51,39 @@ const UserSchema = new Schema<IUserDocument>(
   { timestamps: true }
 );
 
-export default models.User || model<IUserDocument>('User', UserSchema);
+UserSchema.pre('save', async function (next) {
+  const user = this;
+
+  if (user.isModified('password')) {
+    user.password = await bcrypt.hash(user.password, 8);
+  }
+
+  next();
+});
+
+UserSchema.methods.toJSON = function () {
+  const user = this;
+  const userObject = user.toObject();
+  delete userObject.password;
+
+  return userObject;
+};
+
+UserSchema.statics.findByCredentials = async (email, password) => {
+  const user = await models.User.findOne({ email });
+
+  if (!user) {
+    throw new Error('Unable to login');
+  }
+
+  const isMatch = await bcrypt.compare(password, user.password);
+
+  if (!isMatch) {
+    throw new Error('Unable to login');
+  }
+
+  return user;
+};
+
+export default (models.User as IUserModel) ||
+  model<IUserDocument, IUserModel>('User', UserSchema);
