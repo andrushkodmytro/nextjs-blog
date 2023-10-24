@@ -10,6 +10,7 @@ export async function GET(
     const { slug } = params;
 
     await dbConnect();
+
     const post = await Post.findOne({ slug }).populate([
       {
         path: 'author',

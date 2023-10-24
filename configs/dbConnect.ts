@@ -1,4 +1,9 @@
 import mongoose from 'mongoose';
+import '@/app/models/Category'
+import '@/app/models/Comment'
+import '@/app/models/Post'
+import '@/app/models/User'
+
 declare global {
   var mongoose: any; // This must be a `var` and not a `let / const`
 }
@@ -40,3 +45,26 @@ async function dbConnect() {
 }
 
 export default dbConnect;
+
+
+// import mongoose from 'mongoose'
+
+// const connection = {} /* creating connection object*/
+
+// async function dbConnect() {
+//   /* check if we have connection to our databse*/
+//   if (connection.isConnected) {
+//     return
+//   }
+
+//   /* connecting to our database */
+//   const db = await mongoose.connect(process.env.MONGODB_URI, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   })
+
+//   connection.isConnected = db.connections[0].readyState
+//   console.log
+// }
+
+// export default dbConnect
