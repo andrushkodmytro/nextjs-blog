@@ -35,9 +35,15 @@
   color: var(--primaryMainColor);
 }
 
-.btnOutlinedPrimary:hover {
+.btnOutlinedPrimary:not(:disabled):hover {
   border: 1px solid var(--primaryMainColor);
   background-color: rgba(25, 118, 210, 0.04);
+}
+
+.btnOutlinedPrimary:disabled {
+  color: rgba(0, 0, 0, 0.26);
+  border-color: rgba(0, 0, 0, 0.12);
+  cursor: not-allowed;
 }
 
 .btnOutlinedSecondary {

@@ -5,16 +5,23 @@
   justify-content: center;
 }
 
+.container {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: var(--borderRadiusMd);
+  border: 1px solid var(--borderColor);
+  padding: 30px;
+}
+
+.container h1{
+  margin-bottom: 20px;
+}
+
 .form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  margin: 0 auto;
-  border: 1px solid var(--borderColor);
-  max-width: 400px;
-  width: 100%;
-  padding: 30px;
-  border-radius: var(--borderRadiusMd);
+  gap: 10px;
 }
 
 .error {
@@ -29,4 +36,5 @@
   display: flex;
   justify-content: flex-end;
   gap: 20px;
+  margin-top: 20px;
 }

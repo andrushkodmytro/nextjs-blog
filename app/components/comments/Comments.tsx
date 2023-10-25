@@ -5,6 +5,7 @@ import { IComment } from '@/app/models/Comment';
 import styles from './comments.module.css';
 import Image from 'next/image';
 import UserInfo from '../userInfo/UserInfo';
+import Button from '@/app/components/ui/button/Button';
 
 type CommentsType = {
   postSlug: string;
@@ -72,14 +73,14 @@ const Comments = ({ postSlug }: CommentsType) => {
             value={body}
             onChange={(e) => setBody(e.target.value)}
           />
-          <button className={`btn-secondary ${styles.btn}`} onClick={onSubmit}>
+          <Button className={styles.btn} onClick={onSubmit}>
             Send
-          </button>
+          </Button>
         </div>
       ) : (
-        <button className={styles.logInBtn} onClick={() => signIn()}>
+        <Button className={styles.logInBtn} variant='text' onClick={() => signIn()}>
           Login to write a comment
-        </button>
+        </Button>
       )}
 
       <div className={styles.commentsList}>

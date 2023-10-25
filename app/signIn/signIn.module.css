@@ -5,16 +5,24 @@
   justify-content: center;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.container {
   margin: 0 auto;
   border: 1px solid var(--borderColor);
   max-width: 400px;
   width: 100%;
   padding: 30px;
   border-radius: var(--borderRadiusMd);
+}
+
+.container h1 {
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
 }
 
 .error {
@@ -29,4 +37,17 @@
   display: flex;
   justify-content: flex-end;
   gap: 20px;
+}
+
+.bottomText {
+  text-align: center;
+  font-weight: 500;
+}
+
+.bottomText a {
+  color: var(--primaryMainColor);
+}
+
+.bottomText a:hover {
+  color: var(--primaryDarkColor);
 }

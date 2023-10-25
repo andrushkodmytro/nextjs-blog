@@ -8,6 +8,7 @@ import styles from './editor.module.css';
 import { ICategory } from '@/app/models/Category';
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
+import Button from '../ui/button/Button';
 
 type EditorProps = {
   slug?: string;
@@ -76,12 +77,12 @@ const Editor = ({
     <div className={styles.container}>
       <div className={styles.top}>
         <h1>{slug? 'Edit a story': 'Add a new story'}</h1>
-        <button
-          className={`btn-primary ${styles.publishBtn}`}
+        <Button
+          className={styles.publishBtn}
           onClick={onPublish}
         >
           Publish
-        </button>
+        </Button>
       </div>
       <select
         className={styles.select}

@@ -64,6 +64,7 @@ ul {
   flex-grow: 1;
   padding-top: 80px;
   padding-bottom: 80px;
+  display:flex;
 }
 
 .wrapper {

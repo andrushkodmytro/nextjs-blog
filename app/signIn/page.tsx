@@ -1,27 +1,30 @@
 'use client';
+import * as Yup from 'yup';
 import { signIn } from 'next-auth/react';
-import React, { useState, useRef } from 'react';
+import { Formik } from 'formik';
 import Button from '@/app/components/ui/button/Button';
-import TextField from '@/app/components/ui/textField/TextField';
 import styles from './signIn.module.css';
+import FormTextField from '@/app/components/ui/formTextField/FormTextField';
+import Link from 'next/link';
+
+const validateScheme = Yup.object().shape({
+  username: Yup.string().email('Invalid email').required('Required'),
+  password: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required'),
+});
+
+interface Values {
+  username: string;
+  password: string;
+}
 
 const SignIn = () => {
-  const [error, setError] = useState('');
-  const userName = useRef<HTMLInputElement | null>(null);
-  const password = useRef<HTMLInputElement | null>(null);
-
-  const onSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!userName.current?.value || !password.current?.value) {
-      setError('User name and email is require');
-
-      return;
-    }
-
-    const result = await signIn('credentials', {
-      username: userName.current?.value,
-      password: password.current?.value,
+  const onSubmit = ({ username, password }: Values) => {
+    const result = signIn('credentials', {
+      username: username,
+      password: password,
       redirect: true,
       callbackUrl: '/',
     });
@@ -29,20 +32,36 @@ const SignIn = () => {
 
   return (
     <div className={styles.signInPage}>
-      <form className={styles.form} onSubmit={onSubmit}>
+      <div className={styles.container}>
         <h1>Sign In</h1>
-        {error && <p className={styles.error}>{error}</p>}
-        <TextField label='Email' />
-        <TextField label='Password' />
-        <div className={styles.btnsContainer}>
-          <Button type='button' color='secondary' variant='outlined'>
-            Back
-          </Button>
-          <Button type='submit' color='primary' variant='contained'>
-            Login
-          </Button>
-        </div>
-      </form>
+        <Formik
+          initialValues={{
+            username: '',
+            password: '',
+          }}
+          validationSchema={validateScheme}
+          onSubmit={onSubmit}
+        >
+          {({ handleSubmit, isSubmitting }) => (
+            <form className={styles.form} onSubmit={handleSubmit}>
+              <FormTextField label='Email' name='username' />
+              <FormTextField label='Password' name='password' />
+              <div className={styles.btnsContainer}>
+                <Button type='button' color='secondary' variant='outlined'>
+                  Back
+                </Button>
+                <Button type='submit' color='primary' variant='contained'>
+                  Login
+                </Button>
+              </div>
+            </form>
+          )}
+        </Formik>
+
+        <p className={styles.bottomText}>
+          Don&apos;t have an account? <Link href='/signUp'>Sign Up</Link>
+        </p>
+      </div>
     </div>
   );
 };

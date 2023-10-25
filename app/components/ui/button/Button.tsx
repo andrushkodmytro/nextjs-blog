@@ -20,11 +20,12 @@ const variants = {
 const Button = ({
   variant = 'contained',
   color = 'primary',
+  className,
   ...rest
 }: ButtonProps) => {
   return (
     <button
-      className={`${styles.btn} ${styles[variants[variant] + colors[color]]}`}
+      className={`${styles.btn} ${styles[variants[variant] + colors[color]]} ${className}`}
       {...rest}
     >
       {rest.children}

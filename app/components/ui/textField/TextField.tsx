@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { useId } from 'react';
 import styles from './textField.module.css';
 
-type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
+export type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
   error?: string;
 };
 
 const TextField = ({ label, error, ...rest }: TextFieldProps) => {
+  const inputId = useId();
   return (
     <div
       className={`${styles.textField} ${error ? styles.errorTextField : ''} ${
         rest.disabled ? styles.disabled : ''
       }`}
     >
-      {label && <label htmlFor={'name'}>{label}</label>}
+      {label && <label htmlFor={inputId}>{label}</label>}
 
-      <input className={styles.input} id='name' type='text' {...rest} />
+      <input className={styles.input} id={inputId} type='text' {...rest} />
       {error && <p className={styles.errorText}>{error}</p>}
     </div>
   );
