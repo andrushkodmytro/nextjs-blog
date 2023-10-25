@@ -10,15 +10,11 @@ import User from '@/app/models/User';
 //   return NextResponse.json({ user });
 // }
 
-export async function POST() {
+export async function POST(req: Request) {
+  const body = await req.json();
   await dbConnect();
 
-  const user = await User.create({
-    firstName: 'Dima',
-    lastName: 'Andrushko',
-    email: 'email@email.com',
-    password: '12345678',
-  });
+  const user = await User.create(body);
 
-  return NextResponse.json({ user });
+  return NextResponse.json(user, { status: 201 });
 }

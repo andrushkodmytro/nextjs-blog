@@ -5,6 +5,7 @@ import { Formik } from 'formik';
 import FormTextField from '@/app/components/ui/formTextField/FormTextField';
 import Button from '@/app/components/ui/button/Button';
 import styles from './signUp.module.css';
+import { useRouter } from 'next/navigation';
 
 const validateScheme = Yup.object().shape({
   firstName: Yup.string()
@@ -18,9 +19,13 @@ const validateScheme = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
   img: Yup.string()
     .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
+    .max(500, 'Too Long!')
     .required('Required'),
   password: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required'),
+  confirmPassword: Yup.string()
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
     .required('Required'),
@@ -32,11 +37,22 @@ interface Values {
   email: string;
   img: string;
   password: string;
+  confirmPassword: string;
 }
 
 const SignUp = () => {
-  const onSubmit = (values: Values) => {
-    console.log(values);
+  const router = useRouter();
+
+  const onSubmit = async ({ confirmPassword, ...rest }: Values) => {
+    const url = `/api/users`;
+    const res = await fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(rest),
+    });
+
+    if (res.status === 201) {
+      router.push(`/signIn`);
+    }
   };
 
   return (

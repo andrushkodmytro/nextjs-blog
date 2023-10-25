@@ -41,10 +41,12 @@ const Comments = ({ postSlug }: CommentsType) => {
     try {
       setIsLoading(true);
 
+      if (!session) return;
+
       const res = await fetch(`/api/comments`, {
         method: 'POST',
         body: JSON.stringify({
-          author: '65086447f52a24339dd2c5c0',
+          author: session.user._id,
           body,
           postSlug,
         }),
@@ -78,7 +80,11 @@ const Comments = ({ postSlug }: CommentsType) => {
           </Button>
         </div>
       ) : (
-        <Button className={styles.logInBtn} variant='text' onClick={() => signIn()}>
+        <Button
+          className={styles.logInBtn}
+          variant='text'
+          onClick={() => signIn()}
+        >
           Login to write a comment
         </Button>
       )}
