@@ -37,4 +37,18 @@
   justify-content: flex-end;
   gap: 20px;
   margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.bottomText {
+  text-align: center;
+  font-weight: 500;
+}
+
+.bottomText a {
+  color: var(--primaryMainColor);
+}
+
+.bottomText a:hover {
+  color: var(--primaryDarkColor);
 }

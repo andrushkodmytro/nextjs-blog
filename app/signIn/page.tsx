@@ -1,33 +1,34 @@
 'use client';
 import * as Yup from 'yup';
 import { signIn } from 'next-auth/react';
-import { Formik } from 'formik';
+import { Formik, FormikHelpers } from 'formik';
 import Button from '@/app/components/ui/button/Button';
 import styles from './signIn.module.css';
 import FormTextField from '@/app/components/ui/formTextField/FormTextField';
 import Link from 'next/link';
+import { signInScheme } from './validation';
+import { useRouter } from 'next/navigation';
 
-const validateScheme = Yup.object().shape({
-  username: Yup.string().email('Invalid email').required('Required'),
-  password: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
-});
-
-interface Values {
-  username: string;
-  password: string;
-}
+type Values = Yup.InferType<typeof signInScheme>;
 
 const SignIn = () => {
-  const onSubmit = ({ username, password }: Values) => {
-    const result = signIn('credentials', {
+  const router = useRouter();
+
+  const onSubmit = async (
+    { username, password }: Values,
+    { setErrors }: FormikHelpers<Values>
+  ) => {
+    const res = await signIn('credentials', {
       username: username,
       password: password,
-      redirect: true,
-      callbackUrl: '/',
+      redirect: false,
     });
+
+    if (res?.ok) {
+      router.push('/');
+    } else {
+      setErrors({ username: 'Credentials do not match' });
+    }
   };
 
   return (
@@ -39,7 +40,7 @@ const SignIn = () => {
             username: '',
             password: '',
           }}
-          validationSchema={validateScheme}
+          validationSchema={signInScheme}
           onSubmit={onSubmit}
         >
           {({ handleSubmit, isSubmitting }) => (
@@ -50,7 +51,12 @@ const SignIn = () => {
                 <Button type='button' color='secondary' variant='outlined'>
                   Back
                 </Button>
-                <Button type='submit' color='primary' variant='contained'>
+                <Button
+                  type='submit'
+                  color='primary'
+                  variant='contained'
+                  disabled={isSubmitting}
+                >
                   Login
                 </Button>
               </div>

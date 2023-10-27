@@ -17,6 +17,11 @@
   background-color: var(--primaryDarkColor);
 }
 
+.btnContainedPrimary:disabled {
+  background-color: rgba(0, 0, 0, 0.26);
+  border-color: rgba(0, 0, 0, 0.26);
+}
+
 .btnContainedSecondary {
   background-color: var(--secondaryMainColor);
   border: 1px solid var(--secondaryMainColor);

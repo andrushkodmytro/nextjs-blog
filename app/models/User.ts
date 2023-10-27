@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import { Schema, Document, model, models, Types, Model } from 'mongoose';
+import { Schema, Document, model, models, Types, Model, } from 'mongoose';
 
 export interface IUserInit {
   firstName: string;
@@ -16,6 +16,10 @@ export interface IUserDocument extends IUserInit, Document {
 }
 
 export interface IUser extends IUserDocument {}
+
+interface IUserModel extends Model<IUserDocument> {
+  findByCredentials(email: string, password: string): any;
+}
 
 const UserSchema = new Schema<IUserDocument>(
   {
@@ -34,6 +38,7 @@ const UserSchema = new Schema<IUserDocument>(
     },
     email: {
       type: String,
+      unique: true,
       required: [true, 'email is required'],
       maxlength: [40, 'email cannot be more than 40 characters'],
     },
@@ -80,4 +85,5 @@ UserSchema.statics.findByCredentials = async (email, password) => {
   return user;
 };
 
-export default models.User || model<IUserDocument>('User', UserSchema);
+export default (models.User as IUserModel) ||
+  model<IUserDocument, IUserModel>('User', UserSchema);
