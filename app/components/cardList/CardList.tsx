@@ -2,6 +2,7 @@ import Card from '@/app/components/card/Card';
 import { IPost } from '@/app/models/Post';
 import Pagination from '@/app/components/pagination/Pagination';
 import styles from './cardList.module.css';
+import Link from 'next/link';
 
 type CardListProps = {
   posts: IPost[];
@@ -13,13 +14,19 @@ type CardListProps = {
 const CardList = ({ posts, page, hasPrev, hasNext }: CardListProps) => {
   return (
     <div className={styles.cardList}>
-      <h2 >Recent posts</h2>
+      <h2>Recent posts</h2>
       <div className={styles.list}>
-        {posts.map((post, index) => {
-          return <Card key={index} post={post} />;
-        })}
+        {posts.length ? (
+          posts.map((post, index) => {
+            return <Card key={index} post={post} />;
+          })
+        ) : (
+          <p className={styles.noCardsText}>No available post</p>
+        )}
       </div>
-      <Pagination page={page} hasPrev={hasPrev} hasNext={hasNext} />
+      {(hasPrev || hasNext) && (
+        <Pagination page={page} hasPrev={hasPrev} hasNext={hasNext} />
+      )}
     </div>
   );
 };

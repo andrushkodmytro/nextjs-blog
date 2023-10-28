@@ -7,12 +7,13 @@ import styles from './signIn.module.css';
 import FormTextField from '@/app/components/ui/formTextField/FormTextField';
 import Link from 'next/link';
 import { signInScheme } from './validation';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 type Values = Yup.InferType<typeof signInScheme>;
 
 const SignIn = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const onSubmit = async (
     { username, password }: Values,
@@ -25,7 +26,7 @@ const SignIn = () => {
     });
 
     if (res?.ok) {
-      router.push('/');
+      router.push(searchParams.get('callbackUrl') || '/');
     } else {
       setErrors({ username: 'Credentials do not match' });
     }
