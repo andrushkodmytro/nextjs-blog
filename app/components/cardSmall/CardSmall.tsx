@@ -1,8 +1,8 @@
 import React from 'react';
 import UserInfo from '../userInfo/UserInfo';
-import styles from './cardSmall.module.css';
 import { ICategory } from '@/app/models/Category';
 import { IUser } from '@/app/models/User';
+import styles from './cardSmall.module.scss';
 
 type CardSmallProps = {
   title: string;

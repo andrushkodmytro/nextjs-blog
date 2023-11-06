@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import styles from './topCart.module.css';
+import styles from './topCart.module.scss';
 
 const TopCard = () => {
   return (

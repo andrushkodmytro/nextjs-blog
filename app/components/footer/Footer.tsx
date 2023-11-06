@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import styles from './footer.module.css';
+import Link from 'next/link';
+import styles from './footer.module.scss';
 
 const Footer = () => {
   return (
@@ -7,7 +7,10 @@ const Footer = () => {
       <div className='wrapper'>
         <div></div>
         <div className={styles.footerBottom}>
-          <Image src='/logo.svg' height={40} width={135} alt='Logo' />
+          <Link className={styles.logo} href='/'>
+            WebBlog
+          </Link>
+
           <div className={styles.policiesContainer}>
             <div>Terms of Use</div>
             <div>Terms of Use</div>

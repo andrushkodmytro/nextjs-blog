@@ -1,9 +1,9 @@
 'use client';
 import { useState } from 'react';
 import { useSession, signIn, signOut } from 'next-auth/react';
-import styles from './authLinks.module.css';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import styles from './authLinks.module.scss';
 
 const menuItems = [{ label: 'Home', href: '/' }];
 

@@ -34,6 +34,7 @@ export async function PUT(
 ) {
   try {
     const body = await req.json();
+
     // TODO add some validation
     await dbConnect();
     const { slug } = params;

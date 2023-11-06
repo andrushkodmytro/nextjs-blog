@@ -3,11 +3,11 @@ import * as Yup from 'yup';
 import { signIn } from 'next-auth/react';
 import { Formik, FormikHelpers } from 'formik';
 import Button from '@/app/components/ui/button/Button';
-import styles from './signIn.module.css';
 import FormTextField from '@/app/components/ui/formTextField/FormTextField';
 import Link from 'next/link';
 import { signInScheme } from './validation';
 import { useRouter, useSearchParams } from 'next/navigation';
+import styles from './signIn.module.scss';
 
 type Values = Yup.InferType<typeof signInScheme>;
 

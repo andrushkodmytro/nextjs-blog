@@ -2,10 +2,9 @@
 import { useState, useEffect } from 'react';
 import { useSession, signIn } from 'next-auth/react';
 import { IComment } from '@/app/models/Comment';
-import styles from './comments.module.css';
-import Image from 'next/image';
 import UserInfo from '../userInfo/UserInfo';
 import Button from '@/app/components/ui/button/Button';
+import styles from './comments.module.scss';
 
 type CommentsType = {
   postSlug: string;

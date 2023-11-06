@@ -3,8 +3,8 @@ import TopCard from '@/app/components/topCard/TopCard';
 import CardList from '@/app/components/cardList/CardList';
 import { IPost } from '@/app/models/Post';
 import { ICategory } from '@/app/models/Category';
-import styles from './page.module.css';
 import SidePanel from '../components/sidePanel/SidePanel';
+import styles from './page.module.scss';
 
 const getPosts = async (
   page: number

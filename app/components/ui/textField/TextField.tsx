@@ -1,5 +1,5 @@
 import React, { useId } from 'react';
-import styles from './textField.module.css';
+import styles from './textField.module.scss';
 
 export type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: string;

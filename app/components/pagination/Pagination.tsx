@@ -1,8 +1,7 @@
 'use client';
-
 import { useRouter } from 'next/navigation';
 import Button from '@/app/components/ui/button/Button';
-import styles from './pagination.module.css';
+import styles from './pagination.module.scss';
 
 type PaginationProps = {
   page: number;
@@ -15,7 +14,6 @@ const Pagination = ({ page = 1, hasPrev, hasNext }: PaginationProps) => {
   return (
     <div className={styles.pagination}>
       <Button
-        // className='btn-secondary'
         variant='outlined'
         disabled={!hasPrev}
         onClick={() => router.push(`?page=${page - 1}`)}
@@ -23,7 +21,6 @@ const Pagination = ({ page = 1, hasPrev, hasNext }: PaginationProps) => {
         Prev
       </Button>
       <Button
-        // className='btn-secondary'
         variant='outlined'
         disabled={!hasNext}
         onClick={() => router.push(`?page=${page + 1}`)}

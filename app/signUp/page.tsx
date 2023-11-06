@@ -4,10 +4,10 @@ import * as Yup from 'yup';
 import { Formik, FormikHelpers } from 'formik';
 import FormTextField from '@/app/components/ui/formTextField/FormTextField';
 import Button from '@/app/components/ui/button/Button';
-import styles from './signUp.module.css';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { userRegistrationFormScheme } from './validation';
+import styles from './signUp.module.scss';
 
 type Values = Yup.InferType<typeof userRegistrationFormScheme>;
 

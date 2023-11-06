@@ -2,7 +2,7 @@
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import React from 'react';
-import styles from './editPostBtn.module.css';
+import styles from './editPostBtn.module.scss';
 
 type EditPostBtnProps = {
   authorId: string;

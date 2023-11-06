@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './skeleton.module.css';
+import styles from './skeleton.module.scss';
 
 type SkeletonProps = {
   width?: number;

@@ -1,9 +1,9 @@
 import React from 'react';
 import CardList from '@/app/components/cardList/CardList';
 import { IPost } from '@/app/models/Post';
-import styles from './categoryPosts.module.css';
 import SidePanel from '@/app/components/sidePanel/SidePanel';
 import { ICategory } from '@/app/models/Category';
+import styles from './categoryPosts.module.scss';
 
 const getData = async (
   categorySlug: string

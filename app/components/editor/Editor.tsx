@@ -4,11 +4,11 @@ import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 import 'react-quill/dist/quill.bubble.css';
-import styles from './editor.module.css';
 import { ICategory } from '@/app/models/Category';
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
 import Button from '../ui/button/Button';
+import styles from './editor.module.scss';
 
 type EditorProps = {
   slug?: string;

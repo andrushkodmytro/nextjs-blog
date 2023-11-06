@@ -1,8 +1,7 @@
 import Card from '@/app/components/card/Card';
 import { IPost } from '@/app/models/Post';
 import Pagination from '@/app/components/pagination/Pagination';
-import styles from './cardList.module.css';
-import Link from 'next/link';
+import styles from './cardList.module.scss';
 
 type CardListProps = {
   posts: IPost[];

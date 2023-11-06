@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Editor from '@/app/components/editor/Editor';
-import styles from './addPost.module.css';
+import styles from './addPost.module.scss';
 import { ICategory } from '../models/Category';
 
 export const metadata: Metadata = {

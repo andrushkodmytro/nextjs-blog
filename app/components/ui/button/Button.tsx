@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './button.module.css';
+import styles from './button.module.scss';
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   color?: 'primary' | 'secondary';

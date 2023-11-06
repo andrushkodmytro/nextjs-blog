@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import Editor from '@/app/components/editor/Editor';
-import styles from './addPost.module.css';
 import { ICategory } from '../../models/Category';
 import { IPost } from '@/app/models/Post';
+import styles from './addPost.module.scss';
 
 export const metadata: Metadata = {
   title: 'Add new post',

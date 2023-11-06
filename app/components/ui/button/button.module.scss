@@ -11,15 +11,15 @@
   border: 1px solid var(--primaryMainColor);
   padding: 8px 20px;
   color: white;
-}
 
-.btnContainedPrimary:hover {
-  background-color: var(--primaryDarkColor);
-}
+  &:not(:disabled):hover {
+    background-color: var(--primaryDarkColor);
+  }
 
-.btnContainedPrimary:disabled {
-  background-color: rgba(0, 0, 0, 0.26);
-  border-color: rgba(0, 0, 0, 0.26);
+  &:disabled {
+    background-color: rgba(0, 0, 0, 0.26);
+    border-color: rgba(0, 0, 0, 0.26);
+  }
 }
 
 .btnContainedSecondary {
@@ -27,10 +27,10 @@
   border: 1px solid var(--secondaryMainColor);
   padding: 8px 20px;
   color: white;
-}
 
-.btnContainedSecondary:hover {
-  background-color: var(--secondaryDarkColor);
+  &:not(:disabled):hover {
+    background-color: var(--secondaryDarkColor);
+  }
 }
 
 .btnOutlinedPrimary {
@@ -38,17 +38,17 @@
   border: 1px solid var(--primaryMainColor);
   padding: 8px 20px;
   color: var(--primaryMainColor);
-}
 
-.btnOutlinedPrimary:not(:disabled):hover {
-  border: 1px solid var(--primaryMainColor);
-  background-color: rgba(25, 118, 210, 0.04);
-}
+  &:not(:disabled):hover {
+    border: 1px solid var(--primaryMainColor);
+    background-color: rgba(25, 118, 210, 0.04);
+  }
 
-.btnOutlinedPrimary:disabled {
-  color: rgba(0, 0, 0, 0.26);
-  border-color: rgba(0, 0, 0, 0.12);
-  cursor: not-allowed;
+  &:disabled {
+    color: rgba(0, 0, 0, 0.26);
+    border-color: rgba(0, 0, 0, 0.12);
+    cursor: not-allowed;
+  }
 }
 
 .btnOutlinedSecondary {
@@ -56,11 +56,11 @@
   border: 1px solid var(--secondaryMainColor);
   padding: 8px 20px;
   color: var(--secondaryMainColor);
-}
 
-.btnOutlinedSecondary:hover {
-  border: 1px solid var(--secondaryMainColor);
-  background-color: rgba(156, 39, 176, 0.04);
+  &:hover {
+    border: 1px solid var(--secondaryMainColor);
+    background-color: rgba(156, 39, 176, 0.04);
+  }
 }
 
 .btnTextPrimary {
@@ -68,11 +68,11 @@
   border: 1px solid transparent;
   padding: 8px 20px;
   color: var(--primaryMainColor);
-}
 
-.btnTextPrimary:hover {
-  border: 1px solid rgba(25, 118, 210, 0.04);
-  background-color: rgba(25, 118, 210, 0.04);
+  &:hover {
+    border: 1px solid rgba(25, 118, 210, 0.04);
+    background-color: rgba(25, 118, 210, 0.04);
+  }
 }
 
 .btnTextSecondary {
@@ -80,9 +80,9 @@
   border: 1px solid transparent;
   padding: 8px 20px;
   color: var(--secondaryMainColor);
-}
 
-.btnTextSecondary:hover {
-  border: 1px solid rgba(156, 39, 176, 0.04);
-  background-color: rgba(156, 39, 176, 0.04);
+  &:hover {
+    border: 1px solid rgba(156, 39, 176, 0.04);
+    background-color: rgba(156, 39, 176, 0.04);
+  }
 }

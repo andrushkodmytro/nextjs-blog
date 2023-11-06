@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { ICategory } from '@/app/models/Category';
-import styles from './categoryList.module.css';
 import Link from 'next/link';
+import styles from './categoryList.module.scss';
 
 type CategoryListProps = {
   categories: ICategory[];
