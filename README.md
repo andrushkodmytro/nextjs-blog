@@ -5,6 +5,9 @@ Web development blogs can be extremely helpful when looking to expand your knowl
 This project based on [Next.js](https://nextjs.org) and hosted on [Vercel.com](https://vercel.com). For database it uses mongodb and mongoose.
 
 ### Open a demo [webblog.com](https://nextjs-blog-andrushkodmytro.vercel.app/) 
+  
+<img alt="WebBlog screenshot" src="https://github.com/andrushkodmytro/nextjs-blog/blob/main/repo_assets/Screenshot%20from%202024-01-17%2016-33-42.png" />
+
 ### Getting Started
 
 First, run the development server:
