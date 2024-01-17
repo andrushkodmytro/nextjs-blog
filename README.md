@@ -1,5 +1,11 @@
-Open a demo [link](https://nextjs-blog-andrushkodmytro.vercel.app/) 
-## Getting Started
+# Web Blog
+## Description
+Web development blogs can be extremely helpful when looking to expand your knowledge in a particular web development niche. However, when searching it’s easy to get overwhelmed with the amount of content that is out there. This resource will help you to learn new technology and approaches in web development.
+
+This project based on [Next.js](https://nextjs.org) and hosted on [Vercel.com](https://vercel.com). For database it uses mongodb and mongoose.
+
+### Open a demo [webblog.com](https://nextjs-blog-andrushkodmytro.vercel.app/) 
+### Getting Started
 
 First, run the development server:
 
@@ -7,12 +13,7 @@ First, run the development server:
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
