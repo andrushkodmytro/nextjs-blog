@@ -1,18 +1,22 @@
 'use client';
 import { useState } from 'react';
 import { useSession, signIn, signOut } from 'next-auth/react';
-import styles from './authLinks.module.css';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import styles from './authLinks.module.scss';
 
 const menuItems = [{ label: 'Home', href: '/' }];
 
 const AuthLinks = () => {
   const { status } = useSession();
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   if (status === 'loading') {
     return <div>Loading</div>;
   }
+
+  const searchParams = new URLSearchParams(`callbackUrl=${pathname}`);
 
   return (
     <>
@@ -26,9 +30,9 @@ const AuthLinks = () => {
         })}
 
         {status === 'unauthenticated' ? (
-          <button className={styles.link} onClick={() => signIn()}>
+          <Link href={`/signIn?${searchParams}`} className={styles.link}>
             Login
-          </button>
+          </Link>
         ) : (
           <>
             <Link href='/add-post'>Write</Link>

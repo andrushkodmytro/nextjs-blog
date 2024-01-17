@@ -1,5 +1,5 @@
 .skeleton {
-  background-color: rgba(0, 0, 0, 0.11);
+  background-color: var(--loadingBg);
   animation: identifier 2s ease-in-out 0.5s infinite normal none running;
   height: 20px;
   border-radius: var(--borderRadiusSm);

@@ -10,6 +10,7 @@ export async function GET(
     const { slug } = params;
 
     await dbConnect();
+
     const post = await Post.findOne({ slug }).populate([
       {
         path: 'author',
@@ -33,6 +34,7 @@ export async function PUT(
 ) {
   try {
     const body = await req.json();
+
     // TODO add some validation
     await dbConnect();
     const { slug } = params;

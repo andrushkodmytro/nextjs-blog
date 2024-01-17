@@ -2,9 +2,9 @@
 import { useState, useEffect } from 'react';
 import { useSession, signIn } from 'next-auth/react';
 import { IComment } from '@/app/models/Comment';
-import styles from './comments.module.css';
-import Image from 'next/image';
 import UserInfo from '../userInfo/UserInfo';
+import Button from '@/app/components/ui/button/Button';
+import styles from './comments.module.scss';
 
 type CommentsType = {
   postSlug: string;
@@ -40,10 +40,12 @@ const Comments = ({ postSlug }: CommentsType) => {
     try {
       setIsLoading(true);
 
+      if (!session) return;
+
       const res = await fetch(`/api/comments`, {
         method: 'POST',
         body: JSON.stringify({
-          author: '65086447f52a24339dd2c5c0',
+          author: session.user._id,
           body,
           postSlug,
         }),
@@ -72,14 +74,18 @@ const Comments = ({ postSlug }: CommentsType) => {
             value={body}
             onChange={(e) => setBody(e.target.value)}
           />
-          <button className={`btn-secondary ${styles.btn}`} onClick={onSubmit}>
+          <Button className={styles.btn} onClick={onSubmit}>
             Send
-          </button>
+          </Button>
         </div>
       ) : (
-        <button className={styles.logInBtn} onClick={() => signIn()}>
+        <Button
+          className={styles.logInBtn}
+          variant='text'
+          onClick={() => signIn()}
+        >
           Login to write a comment
-        </button>
+        </Button>
       )}
 
       <div className={styles.commentsList}>

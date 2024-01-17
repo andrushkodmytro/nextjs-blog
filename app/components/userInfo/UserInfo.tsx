@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './userInfo.module.css';
 import Image from 'next/image';
+import styles from './userInfo.module.scss';
 
 type UserInfoProps = {
   fullName: string;

@@ -4,10 +4,11 @@ import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 import 'react-quill/dist/quill.bubble.css';
-import styles from './editor.module.css';
 import { ICategory } from '@/app/models/Category';
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
+import Button from '../ui/button/Button';
+import styles from './editor.module.scss';
 
 type EditorProps = {
   slug?: string;
@@ -31,7 +32,7 @@ const Editor = ({
   categories,
   title: initTitle = '',
   body: initBody = '',
-  categoryId: initCategory = '',
+  categoryId: initCategory = categories?.[0]._id.toString() || '',
   img: initImg = '',
 }: EditorProps) => {
   const [title, setTitle] = useState(initTitle);
@@ -75,13 +76,10 @@ const Editor = ({
   return (
     <div className={styles.container}>
       <div className={styles.top}>
-        <h1>{slug? 'Edit a story': 'Add a new story'}</h1>
-        <button
-          className={`btn-primary ${styles.publishBtn}`}
-          onClick={onPublish}
-        >
+        <h1>{slug ? 'Edit a story' : 'Add a new story'}</h1>
+        <Button className={styles.publishBtn} onClick={onPublish}>
           Publish
-        </button>
+        </Button>
       </div>
       <select
         className={styles.select}

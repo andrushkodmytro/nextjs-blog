@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { IPost } from '@/app/models/Post';
-import styles from './card.module.css';
 import UserInfo from '../userInfo/UserInfo';
+import styles from './card.module.scss';
 
 type CardProps = {
   post: IPost;

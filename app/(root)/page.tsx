@@ -3,8 +3,9 @@ import TopCard from '@/app/components/topCard/TopCard';
 import CardList from '@/app/components/cardList/CardList';
 import { IPost } from '@/app/models/Post';
 import { ICategory } from '@/app/models/Category';
-import styles from './page.module.css';
-import SidePanel from './components/sidePanel/SidePanel';
+import SidePanel from '../components/sidePanel/SidePanel';
+import styles from './page.module.scss';
+import { POST_PER_PAGE } from '../utils/constants';
 
 const getPosts = async (
   page: number
@@ -47,8 +48,6 @@ export default async function Home({ searchParams }: HomeProps) {
 
   const { categories } = await getCategories();
 
-  const POST_PER_PAGE = 2;
-
   const hasPrev = POST_PER_PAGE * (page - 1) > 0;
   const hasNext = POST_PER_PAGE * (page - 1) + POST_PER_PAGE < total;
 
@@ -61,6 +60,7 @@ export default async function Home({ searchParams }: HomeProps) {
           page={page}
           hasPrev={hasPrev}
           hasNext={hasNext}
+          total={total}
         />
         <SidePanel posts={posts} categories={categories} />
       </div>

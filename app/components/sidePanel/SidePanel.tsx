@@ -1,10 +1,9 @@
 import React from 'react';
 import CardSmall from '@/app/components/cardSmall/CardSmall';
 import { IPost } from '@/app/models/Post';
-
-import styles from './sidePanel.module.css';
 import CategoryList from '../categoryList/CategoryList';
 import { ICategory } from '@/app/models/Category';
+import styles from './sidePanel.module.scss';
 
 type SidePanelProps = {
   posts: IPost[];

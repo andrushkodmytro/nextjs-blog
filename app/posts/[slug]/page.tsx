@@ -1,9 +1,11 @@
 import Image from 'next/image';
 import Comments from '@/app/components/comments/Comments';
 import { IPost } from '@/app/models/Post';
-import styles from './post.module.css';
 import UserInfo from '@/app/components/userInfo/UserInfo';
-import Link from 'next/link';
+import { getServerSession } from 'next-auth';
+import { authConfig } from '@/configs/auth';
+import EditPostBtn from '@/app/components/editPostBtn/EditPostBtn';
+import styles from './post.module.scss';
 
 const getData = async (slug: string): Promise<IPost> => {
   const res = await fetch(`${process.env.APP_URL}/api/posts/${slug}`, {
@@ -22,6 +24,7 @@ type PostProps = {
 };
 
 const Post = async ({ params }: PostProps) => {
+  const data = await getServerSession(authConfig);
   const { slug } = params;
   const { title, body, author, img, createdAt, categoryId } =
     await getData(slug);
@@ -37,12 +40,7 @@ const Post = async ({ params }: PostProps) => {
         />
         <span className={styles.category}>{categoryId.title}</span>
 
-        <Link
-          href={`/edit/${slug}`}
-          className={`btn-secondary ${styles.editLink}`}
-        >
-          Edit story
-        </Link>
+        <EditPostBtn authorId={author._id.toString()} slug={slug} />
       </div>
 
       <div className={styles.imgContainer}>

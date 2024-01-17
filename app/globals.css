@@ -43,6 +43,7 @@ ul {
   --textColor: #ddd;
   --softBg: #1f273a;
   --softTextColor: #a6a6a6;
+  --loadingBg:  rgba(229, 224, 224, 0.2);
 }
 
 .light {
@@ -50,6 +51,7 @@ ul {
   --textColor: black;
   --softBg: #f0f0f0;
   --softTextColor: #626262;
+  --loadingBg:  rgba(0, 0, 0, 0.11);
 }
 
 .container {
@@ -101,7 +103,7 @@ ul {
 .btn-secondary {
   color: var(--textColor);
   border: 1px solid currentColor;
-  background-color: white;
+  background-color: var(--bg);
   border-radius: 4px;
   padding: 6px 16px;
   font-family: inherit;
