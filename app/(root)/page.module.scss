@@ -10,10 +10,8 @@
   gap: 40px;
 }
 
-
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
   .postContainer {
-    
     grid-template-columns: 1fr;
     gap: 40px;
   }

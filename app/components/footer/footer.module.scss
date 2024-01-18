@@ -7,6 +7,8 @@
 .footerBottom {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 }
 
 .policiesContainer {
@@ -17,4 +19,18 @@
 .logo{
   font-size: 30px;
   font-weight: 600;
+}
+
+.yearBlock{
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 600px) {
+  .footerBottom {
+   flex-direction: column;
+   justify-content: flex-start;
+  }
 }

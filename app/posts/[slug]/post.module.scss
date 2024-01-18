@@ -17,7 +17,7 @@
 
 .imgContainer {
   position: relative;
-  height: 462px;
+  aspect-ratio: 9/5;
 }
 
 .imgContainer img {
@@ -43,12 +43,31 @@
   line-height: 32px;
 }
 
-.body p,
-.body h1,
-.body h2,
-.body h3,
-.body h4,
-.body h5,
-.body h6 {
-  margin-top: 40px;
+.body {
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 40px;
+  }
 }
+
+.body pre {
+  overflow: auto;
+}
+
+@media screen and (max-width: 900px) {
+  .post {
+    padding: 40px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .post {
+    padding: 30px 20px;
+  }
+}
+

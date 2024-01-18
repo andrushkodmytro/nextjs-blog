@@ -5,13 +5,12 @@
   margin-bottom: 20px;
 }
 .categoryList {
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
   gap: 20px;
 }
 
 .categoryItem {
-  flex: 1 1 0;
   display: flex;
   justify-content: center;
   align-items: center;

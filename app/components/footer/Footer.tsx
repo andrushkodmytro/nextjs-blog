@@ -5,17 +5,19 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className='wrapper'>
-        <div></div>
         <div className={styles.footerBottom}>
           <Link className={styles.logo} href='/'>
             WebBlog
           </Link>
 
           <div className={styles.policiesContainer}>
-            <div>Terms of Use</div>
-            <div>Terms of Use</div>
-            <div>Terms of Use</div>
+            <Link href='/terms'>Terms of Use</Link>
+            <Link href='/privacy'>Privacy Policy</Link>
           </div>
+        </div>
+
+        <div className={styles.yearBlock}>
+          <span>&copy; {new Date().getFullYear()} Ukraine</span>
         </div>
       </div>
     </footer>

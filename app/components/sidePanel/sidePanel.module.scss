@@ -13,3 +13,9 @@
   flex-direction: column;
   gap: 20px;
 }
+
+@media screen and (max-width: 1200px) {
+  .sidePanel {
+    flex-direction: column-reverse;
+  }
+}

@@ -4,13 +4,13 @@
   --softBg: #f0f0f0;
   --softTextColor: #626262;
 
-  --errorColor: rgb(211,47,47);
+  --errorColor: rgb(211, 47, 47);
 
   --primaryLightColor: rgb(25, 118, 210);
   --primaryMainColor: rgb(25, 118, 210);
   --primaryDarkColor: #1565c0;
 
-  --secondaryLightColor:  #ba68c8;
+  --secondaryLightColor: #ba68c8;
   --secondaryMainColor: #9c27b0;
   --secondaryDarkColor: #7b1fa2;
 
@@ -43,7 +43,7 @@ ul {
   --textColor: #ddd;
   --softBg: #1f273a;
   --softTextColor: #a6a6a6;
-  --loadingBg:  rgba(229, 224, 224, 0.2);
+  --loadingBg: rgba(229, 224, 224, 0.2);
 }
 
 .light {
@@ -51,7 +51,7 @@ ul {
   --textColor: black;
   --softBg: #f0f0f0;
   --softTextColor: #626262;
-  --loadingBg:  rgba(0, 0, 0, 0.11);
+  --loadingBg: rgba(0, 0, 0, 0.11);
 }
 
 .container {
@@ -66,7 +66,7 @@ ul {
   flex-grow: 1;
   padding-top: 80px;
   padding-bottom: 80px;
-  display:flex;
+  display: flex;
 }
 
 .wrapper {
@@ -126,6 +126,11 @@ div.ql-editor {
 }
 
 @media screen and (max-width: 900px) {
+  .main {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
   .wrapper {
     padding-left: 40px;
     padding-right: 40px;
@@ -133,6 +138,11 @@ div.ql-editor {
 }
 
 @media screen and (max-width: 600px) {
+  .main {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
   .wrapper {
     padding-left: 20px;
     padding-right: 20px;

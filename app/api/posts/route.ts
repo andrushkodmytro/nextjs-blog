@@ -21,6 +21,7 @@ export async function GET(req: Request) {
     }
 
     const posts = await Post.find(obj)
+      .sort({ createdAt: -1 })
       .populate([
         { path: 'categoryId', model: 'Category' },
         { path: 'author', model: 'User' },
