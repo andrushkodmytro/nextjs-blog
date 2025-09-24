@@ -54,6 +54,7 @@ export default async function Home({ searchParams }: HomeProps) {
   return (
     <div className={styles.main}>
       <TopCard />
+      
       <div className={styles.postContainer}>
         <CardList
           posts={posts}
